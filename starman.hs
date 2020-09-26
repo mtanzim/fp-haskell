@@ -6,10 +6,10 @@ check word display c =
     ]
   )
 
-mkguess :: String -> [Char] -> Int -> IO ()
+mkguess :: String -> String -> Int -> IO ()
 mkguess word display n =
   do
-    print (display ++ " " ++ (show n))
+    print (display ++ " " ++ take n (repeat '*'))
     print "Enter your guess"
     q <- getLine
     let (correct, display') = check word display (q !! 0)
@@ -27,4 +27,4 @@ turn word display n =
           else mkguess word display n
 
 starman :: String -> Int -> IO ()
-starman word n = turn word ['-' | x <- word] n
+starman word n = turn word ['-' | x <- word] 5
