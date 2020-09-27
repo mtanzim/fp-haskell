@@ -35,3 +35,7 @@ putTree x (Node y lt rt) = if x < y then (Node y (putTree x lt) rt) else (Node y
 printTreeInorder :: Tree -> [Char]
 printTreeInorder Leaf = ""
 printTreeInorder (Node y lt rt) = printTreeInorder lt ++ (show y) ++ ", " ++ printTreeInorder rt
+
+treeSum :: Tree -> Int
+treeSum Leaf = 0
+treeSum (Node y lt rt) = y + treeSum lt + treeSum rt
