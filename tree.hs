@@ -28,6 +28,7 @@ addNewMax Leaf = Node 0 Leaf Leaf -- input tree with no nodes
 addNewMax (Node x t1 Leaf) = Node x t1 (Node (x + 1) Leaf Leaf) -- this is the rightmost Node
 addNewMax (Node x t1 t2) = Node x t1 (addNewMax t2) -- intermediate node, go down right subtree
 
+-- additions from mtanzim
 putTree :: Int -> Tree -> Tree
 putTree x Leaf = Node x Leaf Leaf
 putTree x (Node y lt rt) = if x < y then (Node y (putTree x lt) rt) else (Node y lt (putTree x rt))
